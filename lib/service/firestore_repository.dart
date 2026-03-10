@@ -9,7 +9,7 @@ class FirestoreRepository {
   FirestoreRepository(this._firestore);
   final FirebaseFirestore _firestore;
 
-  Future<void> addJob(String uid,String title,String desc,WidgetRef ref)async{
+  Future<void> addTask(String uid,String title,String desc,WidgetRef ref)async{
     try{
       final docRef = await _firestore.collection('users/$uid/tasks').add({
         'title':title,
@@ -22,7 +22,7 @@ class FirestoreRepository {
       ref.read(apiServiceProvider).showToast("Failed to add task $e");
     }
   }
-  Future<void> updateJob(String uid,String taskId, String title,String desc,WidgetRef ref)async {
+  Future<void> updateTask(String uid,String taskId, String title,String desc,WidgetRef ref)async {
     try{
       await _firestore.doc('users/$uid/tasks/$taskId').update({
         'title':title,
@@ -34,7 +34,7 @@ class FirestoreRepository {
     }
   }
 
-  Future<void> deleteJob(String uid,String taskId,WidgetRef ref)async{
+  Future<void> deleteTask(String uid,String taskId,WidgetRef ref)async{
     try{
       await _firestore.doc('users/$uid/tasks/$taskId').delete();
       ref.read(apiServiceProvider).showToast("Task Deleted Successfully");
@@ -54,7 +54,7 @@ class FirestoreRepository {
     }
   }
 
-  Query<Task> jobsQuery(String uid){
+  Query<Task> taskQuery(String uid){
     return _firestore.collection('users/$uid/tasks').withConverter(
         fromFirestore: (snapshot,_)=> Task.fromMap(snapshot.data()!),
         toFirestore: (task,_)=> task.toMap()).orderBy('createdAt',descending: true);
