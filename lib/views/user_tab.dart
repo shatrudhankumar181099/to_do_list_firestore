@@ -45,7 +45,7 @@ class UsersTab extends ConsumerWidget {
       ),
       backgroundColor: Colors.white,
       body: FirestoreListView<Task>(
-          query: firestoreRepository.jobsQuery(user!.uid),
+          query: firestoreRepository.taskQuery(user!.uid),
           emptyBuilder: (context) => const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +67,7 @@ class UsersTab extends ConsumerWidget {
           direction: DismissDirection.startToEnd,
           onDismissed: (direction){
             final user = ref.read(firebaseAuthProvider).currentUser;
-            ref.read(firestoreRepositoryProvider).deleteJob(user!.uid, doc.id,ref);
+            ref.read(firestoreRepositoryProvider).deleteTask(user!.uid, doc.id,ref);
           },
           background: const ColoredBox(color: Colors.red),
           child: Container(
@@ -115,7 +115,7 @@ class UsersTab extends ConsumerWidget {
                     const SizedBox(height: 10,),
                     elevatedButtonWidget(AppStrings.update, (){
                       final user = ref.read(firebaseAuthProvider).currentUser;
-                      ref.read(firestoreRepositoryProvider).updateJob(user!.uid,doc.id,updateTitle.text, updateDescriptionName.text,ref);
+                      ref.read(firestoreRepositoryProvider).updateTask(user!.uid,doc.id,updateTitle.text, updateDescriptionName.text,ref);
                       Navigator.pop(context);
                       updateTitle.clear();
                       updateDescriptionName.clear();
@@ -174,7 +174,7 @@ class UsersTab extends ConsumerWidget {
                   const SizedBox(height: 10,),
                   elevatedButtonWidget(AppStrings.add, (){
                     final user = ref.read(firebaseAuthProvider).currentUser;
-                    ref.read(firestoreRepositoryProvider).addJob(user!.uid, title.text, description.text,ref);
+                    ref.read(firestoreRepositoryProvider).addTask(user!.uid, title.text, description.text,ref);
                     Navigator.pop(context);
                     title.clear();
                     description.clear();
