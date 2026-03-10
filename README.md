@@ -14,7 +14,7 @@ State management
 
 CRUD operations
 
-Firebase/Firestore integration (if used)
+Firebase,Firestore integration (if used)
 
 ✨ Features
 
