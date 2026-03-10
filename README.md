@@ -1,16 +1,57 @@
-# herody
+📝 Todo List App
 
-herody assignment
+A simple and efficient Todo List application built with Flutter that helps users manage their daily tasks. Users can create, update, complete, and delete tasks easily.
 
-## Getting Started
+📌 Overview
 
-This project is a starting point for a Flutter application.
+The Todo List App allows users to organize their tasks in a structured way. It provides a clean and intuitive interface for adding tasks, marking them as completed, and managing daily activities.
 
-A few resources to get you started if this is your first Flutter project:
+This project demonstrates:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Flutter UI development
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+State management
+
+CRUD operations
+
+Firebase/Firestore integration (if used)
+
+✨ Features
+
+➕ Add new tasks  :- click on + button
+
+📋 View all tasks
+
+✅ Mark tasks as completed :- click on checkbox
+
+✏️ Edit existing tasks :- click on task list
+
+❌ Delete tasks :- slide start to end.
+
+🔄 Real-time updates (with Firebase)
+
+🛠 Tech Stack
+
+Flutter
+Dart
+Firebase Authentication
+Cloud Firestore
+Riverpod(for state management)
+
+📂 Project Structure
+lib/
+│
+├── model/          
+├── service/        
+├── utils/     
+├── views/        
+├── widgets/       
+└── main.dart      
+run
+🔐 Authentication
+
+The app uses Firebase Authentication for secure login and signup using email and password.
+
+☁️ Database
+
+All tasks are stored in Cloud Firestore, allowing real-time synchronization and secure data storage.
